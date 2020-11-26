@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import java.util.Random;
+import java.util.List;
+
 
 @Entity
 @Schema (description = "Clase Tarea")
@@ -18,7 +20,7 @@ public class Tarea extends PanacheEntity {
     public String descripcion;
     public int puntos;
 
-    public static Tarea todasTareas(){
+    public static List<Tarea> todasTareas(){
         return  listAll();
     }
 

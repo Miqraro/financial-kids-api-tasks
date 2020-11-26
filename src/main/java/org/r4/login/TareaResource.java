@@ -50,7 +50,7 @@ public class TareaResource {
     @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema (implementation = Tarea.class  )))
     @GET
     @Path("/tareas")
-    public String tarea() {
+    public List<Tarea> tarea() {
         return service.tarea();
     }
 }

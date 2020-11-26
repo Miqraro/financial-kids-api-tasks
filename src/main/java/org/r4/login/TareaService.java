@@ -4,6 +4,7 @@ import javax.enterprise.context.ApplicationScoped;
 import org.r4.login.*;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.jboss.logging.Logger; // logging
+import java.util.List;
 
 @ApplicationScoped
 public class TareaService {
@@ -14,7 +15,7 @@ Logger logger = Logger.getLogger(TareaService.class); // logging
 	
 	String hashKey;
 
-    public String tarea(){
+    public List<Tarea> tarea(){
         try{
         logger.debug("hashKey: " + hashKey);
         
@@ -27,10 +28,11 @@ Logger logger = Logger.getLogger(TareaService.class); // logging
         if ( tareas!= null){
             return tareas;
         }else{
-            return "user or pass are incorrect. try again";
+            return null;
         }
         }catch(Exception e){
-            return "Nos hemos caído";
+            logger.debug("Nos hemos caído");
+            return null;
         }        
     }
 }
